@@ -22,15 +22,33 @@ services:
       - pgadmin_data:/var/lib/pgadmin
 
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ce:latest
     container_name: portainer
     restart: always
     ports:
       - "9000:9000"
-      - "8000:8000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+
+  story-stream-frontend:
+    image: ivanmonichev/story-stream-frontend:latest
+    container_name: story-stream-frontend
+    restart: always
+    ports:
+      - "3000:8080"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - story-stream-frontend
+    restart: always
 
 volumes:
   postgres_data:
