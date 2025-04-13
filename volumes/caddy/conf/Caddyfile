@@ -1,4 +1,4 @@
-http://localhost {
+music-demo.ru {
     encode gzip
 
     reverse_proxy story-stream-frontend:8080
@@ -20,5 +20,43 @@ http://localhost {
 
     handle_errors {
         respond "Что-то пошло не так!" 500
+    }
+}
+
+portainer.music-demo.ru {
+    reverse_proxy portainer:9000
+
+    header {
+        X-Frame-Options "DENY"
+        X-Content-Type-Options "nosniff"
+    }
+
+    log {
+        output file /data/log/portainer-access.log {
+            format: json
+        }
+    }
+
+    handle_errors {
+        respond "Что-то пошло не так при обращении к Portainer" 500
+    }
+}
+
+pgadmin.music-demo.ru {
+    reverse_proxy pgadmin:80
+
+    header {
+        X-Frame-Options "DENY"
+        X-Content-Type-Options "nosniff"
+    }
+
+    log {
+        output file /data/log/pgadmin-access.log {
+            format: json
+        }
+    }
+
+    handle_errors {
+        respond "Что-то пошло не так при обращении к pgAdmin" 500
     }
 }
