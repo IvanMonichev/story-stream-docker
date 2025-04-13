@@ -3,6 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15
+    platform: linux/amd64
     container_name: postgres
     restart: always
     ports:
@@ -16,6 +17,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:9.2.0
+    platform: linux/amd64
     container_name: pgadmin
     restart: always
     ports:
