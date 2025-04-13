@@ -1,0 +1,24 @@
+http://localhost {
+    encode gzip
+
+    reverse_proxy story-stream-frontend:8080
+
+    header {
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "no-referrer-when-downgrade"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+        Cache-Control "no-store"
+    }
+
+    log {
+        output file /data/log/access.log {
+            format: json
+        }
+    }
+
+    handle_errors {
+        respond "Что-то пошло не так!" 500
+    }
+}
