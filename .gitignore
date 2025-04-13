@@ -1,2 +1,6 @@
 .idea
 .env
+volumes/pgadmin_data
+volumes/portainer_data
+volumes/postgres_data
+volumes/caddy/data
