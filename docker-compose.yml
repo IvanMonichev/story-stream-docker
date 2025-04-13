@@ -33,6 +33,7 @@ services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
+    platform: linux/amd64
     restart: always
     ports:
       - "9000:9000"
@@ -42,6 +43,7 @@ services:
 
   story-stream-frontend:
     image: ivanmonichev/story-stream-frontend:latest
+    platform: linux/amd64
     container_name: story-stream-frontend
     restart: always
     ports:
@@ -51,6 +53,7 @@ services:
 
   caddy:
     image: caddy:2.9.1-alpine
+    platform: linux/amd64
     container_name: caddy
     restart: always
     depends_on:
