@@ -23,6 +23,10 @@ music-demo.ru {
     }
 }
 
+api.music-demo.ru {
+    reverse_proxy story-stream-backend:8810
+}
+
 portainer.music-demo.ru {
     reverse_proxy portainer:9000
 

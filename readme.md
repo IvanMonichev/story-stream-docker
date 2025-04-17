@@ -44,6 +44,13 @@
 - Образ: `ivanmonichev/story-stream-frontend:latest`
 - Порт: `3000` (хост) → `8080` (контейнер)
 
+### Story Stream Backend
+
+Серверная часть приложения Story Stream.
+
+- Образ: `tatarjesus/story-stream-backend:latest`
+- Порт: `8810` (хост) → `8810` (контейнер)
+
 ### Nginx
 
 Обратный прокси для frontend.
