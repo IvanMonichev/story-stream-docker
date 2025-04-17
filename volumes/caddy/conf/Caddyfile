@@ -23,6 +23,10 @@ music-demo.ru {
     }
 }
 
+api.music-demo.ru {
+    reverse_proxy story-stream-backend:8810
+}
+
 portainer.music-demo.ru {
     reverse_proxy portainer:9000
 
@@ -43,11 +47,17 @@ portainer.music-demo.ru {
 }
 
 pgadmin.music-demo.ru {
-    reverse_proxy pgadmin:80
+    reverse_proxy pgadmin:80 {
+        header_up Host {host}
+        header_up X-Script-Name /pgadmin4
+        header_up X-Scheme https
+    }
 
     header {
-        X-Frame-Options "DENY"
-        X-Content-Type-Options "nosniff"
+        Access-Control-Allow-Origin *
+        Access-Control-Allow-Methods GET, POST, OPTIONS, PUT, DELETE
+        Access-Control-Allow-Headers *
+        Access-Control-Allow-Credentials true
     }
 
     log {

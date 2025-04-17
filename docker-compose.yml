@@ -47,6 +47,23 @@ services:
     environment:
       VITE_API_SERVER: ${VITE_API_SERVER}
 
+  story-stream-backend:
+    image: tatarjesus/story-stream-backend:latest
+    container_name: story-stream-backend
+    restart: always
+    ports:
+      - "8810:8810"
+    environment:
+      SERVER_PORT: ${SERVER_PORT}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_ACCESS_EXPIRE: ${JWT_ACCESS_EXPIRE}
+      NODE_ENV: ${NODE_ENV}
+
   caddy:
     image: caddy:2.9.1-alpine
     container_name: caddy
