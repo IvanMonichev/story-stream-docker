@@ -66,5 +66,11 @@ resource "twc_server" "v01" {
     ram             = 1024
     disk            = 15360
   }
+
+  metadata = {
+    user-data = templatefile("cloud-init.yaml.tftpl", {
+    })
+  }
+
 }
 
