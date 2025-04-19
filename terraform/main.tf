@@ -20,13 +20,13 @@ data "twc_configurator" "configurator" {
 data "twc_os" "ubuntu" {
   name    = "ubuntu"
   version = "22.04"
-  main_ipv4 = "188.225.46.223"
 }
 
 
 resource "twc_vpc" "story-stream-vpc" {
   name = "Story Stream VPC"
   subnet_v4 = "192.168.0.0/24"
+  main_ipv4 = "188.225.46.223"
   location = "ru-1"
 }
 
