@@ -32,7 +32,7 @@ data "twc_presets" "story-stream-preset" {
 resource "twc_vpc" "story-stream-vpc" {
   name = "Story Stream VPC"
   subnet_v4 = "192.168.0.0/24"
-  location = "ru-2"
+  location = "ru-1"
 }
 
 resource "twc_server" "v01" {
