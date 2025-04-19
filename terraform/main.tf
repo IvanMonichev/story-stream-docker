@@ -41,12 +41,12 @@ resource "twc_server" "story-stream-server" {
   os_id     = data.twc_os.ubuntu.id
   preset_id = data.twc_presets.twc-preset.id
 
-  configuration {
-    configurator_id = data.twc_configurator.configurator.id
-    cpu             = 1
-    ram             = 1024
-    disk            = 15360
-  }
+#   configuration {
+#     configurator_id = data.twc_configurator.configurator.id
+#     cpu             = 1
+#     ram             = 1024
+#     disk            = 15360
+#   }
 
   cloud_init = templatefile("./cloud-init.yaml.tftpl", {})
 
