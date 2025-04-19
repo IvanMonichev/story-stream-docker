@@ -54,5 +54,5 @@ resource "twc_server_ip" "example" {
   source_server_id = twc_server.story-stream-server.id
 
   type = "ipv4"
-  ptr  = "music-demo.ru"
+  ptr  = "vm.music-demo.ru"
 }
