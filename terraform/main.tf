@@ -9,7 +9,6 @@ terraform {
 
 
 provider "twc" {
-  project = "story-stream-vm"
   token   = var.api_token
 }
 
