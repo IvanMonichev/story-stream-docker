@@ -30,7 +30,7 @@ resource "twc_vpc" "story-stream-vpc" {
 
 
 resource "twc_server" "story-stream-server" {
-  name      = "Server Terraform"
+  name      = "Story Stream VM 01"
   os_id     = data.twc_os.ubuntu.id
 
   local_network {
