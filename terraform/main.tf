@@ -6,34 +6,6 @@ terraform {
   }
   required_version = ">= 0.13"
 }
-#
-# resource "timeweb_vpc_network" "default" {
-#   name = "story-stream-net"
-# }
-#
-# resource "timeweb_vpc_subnet" "default" {
-#   name           = "story-stream-subnet"
-#   zone           = "ru-2"
-#   v4_cidr_blocks = ["10.0.0.0/16"]
-#   network_id     = timeweb_vpc_network.default.id
-# }
-#
-# resource "timeweb_vpc_security_group" "default" {
-#   name       = "story-stream-sg"
-#   network_id = timeweb_vpc_network.default.id
-#
-#   ingress {
-#     description    = "Allow all inbound traffic"
-#     protocol       = "ANY"
-#     v4_cidr_blocks = ["0.0.0.0/0"]
-#   }
-#
-#   egress {
-#     description    = "Allow all inbound traffic"
-#     protocol       = "ANY"
-#     v4_cidr_blocks = ["0.0.0.0/0"]
-#   }
-# }
 
 provider "twc" {
   token = var.api_token
@@ -49,15 +21,29 @@ data "twc_os" "ubuntu" {
   version = "22.04"
 }
 
+
+data "twc_presets" "story-stream-preset" {
+  price_filter {
+    from = 300
+    to = 400
+  }
+}
+
+resource "twc_vpc" "story-stream-vpc" {
+  name = "Story Stream VPC"
+  subnet_v4 = "192.168.0.0/24"
+  location = "ru-2"
+}
+
 resource "twc_server" "v01" {
   name  = "Server Terraform"
   os_id = data.twc_os.ubuntu.id
+  preset_id = data.twc_presets.story-stream-preset.id
 
-  #   network_interface {
-  #     subnet_id          = timeweb_vpc_subnet.default.id
-  #     nat                = true
-  #     security_group_ids = [timeweb_vpc_security_group.default.id]
-  #   }
+  local_network {
+    id = twc_vpc.story-stream-vpc.id
+    ip = "192.168.0.15"
+  }
 
 
   configuration {
