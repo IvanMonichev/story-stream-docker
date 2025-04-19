@@ -53,11 +53,11 @@ resource "twc_server" "v01" {
   name  = "Server Terraform"
   os_id = data.twc_os.ubuntu.id
 
-#   network_interface {
-#     subnet_id          = timeweb_vpc_subnet.default.id
-#     nat                = true
-#     security_group_ids = [timeweb_vpc_security_group.default.id]
-#   }
+  #   network_interface {
+  #     subnet_id          = timeweb_vpc_subnet.default.id
+  #     nat                = true
+  #     security_group_ids = [timeweb_vpc_security_group.default.id]
+  #   }
 
 
   configuration {
@@ -67,10 +67,7 @@ resource "twc_server" "v01" {
     disk            = 15360
   }
 
-  metadata = {
-    user-data = templatefile("cloud-init.yaml.tftpl", {
-    })
-  }
+  user_data = templatefile("./cloud-init.yaml.tftpl")
 
 }
 
