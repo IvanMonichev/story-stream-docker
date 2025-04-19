@@ -22,13 +22,6 @@ data "twc_os" "ubuntu" {
 }
 
 
-data "twc_presets" "story-stream-preset" {
-  price_filter {
-    from = 300
-    to = 400
-  }
-}
-
 resource "twc_vpc" "story-stream-vpc" {
   name = "Story Stream VPC"
   subnet_v4 = "192.168.0.0/24"
@@ -38,7 +31,6 @@ resource "twc_vpc" "story-stream-vpc" {
 resource "twc_server" "v01" {
   name  = "Server Terraform"
   os_id = data.twc_os.ubuntu.id
-  preset_id = data.twc_presets.story-stream-preset.id
 
   local_network {
     id = twc_vpc.story-stream-vpc.id
