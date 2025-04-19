@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-stream-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: story-stream-frontend
+  template:
+    metadata:
+      labels:
+        app: story-stream-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ivanmonichev/story-stream-frontend:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: frontend-env
