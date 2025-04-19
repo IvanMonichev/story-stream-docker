@@ -3,6 +3,7 @@ terraform {
     twc = {
       source = "tf.timeweb.cloud/timeweb-cloud/timeweb-cloud"
     }
+
   }
   required_version = ">= 0.13"
 }
@@ -22,7 +23,7 @@ data "twc_os" "ubuntu" {
   version = "22.04"
 }
 
-resource "twc_server" "v_server" {
+resource "twc_server" "v01" {
   name  = "Server Terraform"
   os_id = data.twc_os.ubuntu.id
 
@@ -33,3 +34,4 @@ resource "twc_server" "v_server" {
     disk            = 15360
   }
 }
+
