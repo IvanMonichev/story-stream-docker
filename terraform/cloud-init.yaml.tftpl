@@ -2,18 +2,11 @@
 ssh_pwauth: no
 
 users:
-  - name: ivan
+  - name: admin
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
     ssh_authorized_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzPKlEYvi6F3E243Wj9QD+yuky02obyVxk7Lxt/UfhmZ88mvvcJilIqDXx5hrYpEoMaeHqAXd8DKQ5qTjKlOR9RyOAY9ojBMJO/4AYap7edw45thJ0+47+ITgyp5lKzHm8PIzaio3r7humZvWBS8wMKO9FAQs9cIxpkijvx7rvFD5Y6t1wd1M3O3BNGjmhim83ejQ2TIWLCRGvOCFgSQN0rJIsUKmDtNTd7eZIKL4wUr55ytLHIRzOphZgcQb9PPsOMymOon06KoInvxxEyC41x+PNlxL2pwNHJ1qi98wCcCNTevUnDOcsuWA60+8BQxt3A7hG7WxYDlkyGzPKOD8o6ejJ5I1lTGHkuFq7PDczKyh9HSRCiVmqAcXEoMzAjn6k9kRpkQow3ZwKub/Dz2cUyDEPj7AQp0yi2l4fDF4XrmscyvKdt3MmIffia+kcOCgt/FSEqrbPWV2dKHqN8GcrT+DVMPX0CCndcleoEjoOWh8hpCZVbo2Z3GST5zkSJBk= risenfrost@Air-Ivan.lan
-
-  - name: stas
-    sudo: ALL=(ALL) NOPASSWD:ALL
-    shell: /bin/bash
-    ssh_authorized_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP7qH23GH06cTRmuABd0pM1GtPZNT75iP0JjTcvXNDih stas_@TatarJesus
-
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCottusIvFgzK/7Vlc+Vg7cU0S5Op3QB3pWGsrdwbQt1g0DlTlBEPiM0+U5Y1bYMBkZcAcHv9PDu884T5+rx2VKe+SmELZzWWMHt/q8reT03T7HJGHDo3Mp1gBqz62qDRI+EIQDIV6c4v4HvcsNCxVdURXD56QkxulwRuUiM27SXyMmFamqfOdHITnzlsjxft/9QIhNxhN0XCprFM+EUOtyEG6V7e4FqV1BoYDch1n7/w1MEg0N+wIcX3q5WfxwqPvxw7TsgQFcO4KmiepRoYDq2Q3WplDr2VK0Rf4B3rrA59LoZE5jPc6cLYbBTUXP/wqRe9hyxbMg3uO4gfCFIgMXG12VbzW1ClrC1F1MQUjjEnAAjV/swOGhMn/KmorwGn/7ExGqDN+8lx6AYzwW0QT+37Hb1IdV98wAs2BodXOyVPnD4peUXtZNUbmgeohpG1lqiVJPCj0mNCj8nEkGBc9VT6O6tMB3UJ/D+LJW/KcmTBdkeWO7qBRCRnHGH+5z0Ls= admin@2584787-dl70044
 
 package_update: true
 package_upgrade: true
