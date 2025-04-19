@@ -33,6 +33,11 @@ resource "twc_server" "story-stream-server" {
   name      = "Server Terraform"
   os_id     = data.twc_os.ubuntu.id
 
+  local_network {
+    id = twc_vpc.story-stream-vpc.id
+    ip = "192.168.0.1"
+  }
+
   configuration {
     configurator_id = data.twc_configurator.configurator.id
     cpu             = 1
