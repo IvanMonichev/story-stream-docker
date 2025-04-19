@@ -67,7 +67,7 @@ resource "twc_server" "v01" {
     disk            = 15360
   }
 
-  user_data = templatefile("./cloud-init.yaml.tftpl")
+  cloud_init = templatefile("./cloud-init.yaml.tftpl")
 
 }
 
