@@ -29,5 +29,6 @@ runcmd:
   - apt-get install -y docker-ce docker-ce-cli containerd.io
   - systemctl enable docker
   - systemctl start docker
+  - usermod -aG docker admin
 
 final_message: "Docker установлен и запущен успешно!"
