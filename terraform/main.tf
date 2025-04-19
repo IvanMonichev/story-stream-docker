@@ -20,6 +20,7 @@ data "twc_configurator" "configurator" {
 data "twc_os" "ubuntu" {
   name    = "ubuntu"
   version = "22.04"
+  main_ipv4 = "188.225.46.223"
 }
 
 
@@ -32,7 +33,6 @@ resource "twc_vpc" "story-stream-vpc" {
 resource "twc_server" "v01" {
   name  = "Server Terraform"
   os_id = data.twc_os.ubuntu.id
-  main_ipv4 = "188.225.46.223"
 
   local_network {
     id = twc_vpc.story-stream-vpc.id
