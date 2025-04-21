@@ -18,12 +18,16 @@ spec:
           ports:
             - containerPort: 80
           envFrom:
+            - configMapRef:
+                name: pgadmin-config-map
             - secretRef:
-                name: pgadmin-env
+                name: pgadmin-secret
           volumeMounts:
-            - name: pgadmin-data
-              mountPath: /var/lib/pgadmin
+            - mountPath: /var/lib/pgadmin
+              name: pgadmin-storage
       volumes:
-        - name: pgadmin-data
+        - name: pgadmin-storage
           persistentVolumeClaim:
             claimName: pgadmin-pvc
+
+

@@ -18,12 +18,15 @@ spec:
           ports:
             - containerPort: 5432
           envFrom:
+            - configMapRef:
+                name: story-stream-config
             - secretRef:
-                name: db-env
+                name: story-stream-secret
           volumeMounts:
-            - name: postgres-data
-              mountPath: /var/lib/postgresql/data
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-storage
       volumes:
-        - name: postgres-data
+        - name: postgres-storage
           persistentVolumeClaim:
             claimName: postgres-pvc
+

@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: frontend-env
-data:
-  VITE_API_SERVER: "https://api.music-demo.ru"

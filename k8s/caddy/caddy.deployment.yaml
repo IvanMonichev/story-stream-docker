@@ -20,19 +20,16 @@ spec:
             - containerPort: 443
           envFrom:
             - configMapRef:
-                name: caddy-env
+                name: caddy-config-map
           volumeMounts:
-            - name: caddy-conf
+            - name: caddy-config
               mountPath: /etc/caddy
             - name: caddy-data
               mountPath: /data
       volumes:
-        - name: caddy-conf
-          hostPath:
-            path: /home/admin/story-stream/story-stream-docker/volumes/caddy/conf
-            type: Directory
+        - name: caddy-config
           configMap:
-            name: caddy-env
+            name: caddy-config
         - name: caddy-data
           persistentVolumeClaim:
             claimName: caddy-pvc

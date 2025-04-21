@@ -3,10 +3,7 @@ kind: Service
 metadata:
   name: portainer
 spec:
-  type: LoadBalancer
   selector:
     app: portainer
   ports:
-    - protocol: TCP
-      port: 9000
-      targetPort: 9000
+    - port: 9000
