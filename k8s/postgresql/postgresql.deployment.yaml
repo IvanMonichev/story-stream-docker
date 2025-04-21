@@ -19,9 +19,9 @@ spec:
             - containerPort: 5432
           envFrom:
             - configMapRef:
-                name: story-stream-config
+                name: postgresql-config-map
             - secretRef:
-                name: story-stream-secret
+                name: postgresql-secret
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgres-storage
