@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: caddy
 spec:
+  type: LoadBalancer
   selector:
     app: caddy
   ports:
