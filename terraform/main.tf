@@ -49,7 +49,6 @@ resource "twc_server" "story-stream-server" {
 
 }
 
-# Usage example for create additional IP address
 resource "twc_server_ip" "example" {
   source_server_id = twc_server.story-stream-server.id
 

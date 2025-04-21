@@ -4,3 +4,76 @@ metadata:
   name: caddy-config-map
 data:
   TZ: "Europe/Moscow"
+  Caddyfile: |
+    music-demo.ru {
+        encode gzip
+    
+        reverse_proxy story-stream-frontend:8080
+    
+        header {
+            X-Frame-Options "DENY"
+            X-XSS-Protection "1; mode=block"
+            X-Content-Type-Options "nosniff"
+            Referrer-Policy "no-referrer-when-downgrade"
+            Permissions-Policy "geolocation=(), microphone=(), camera=()"
+            Cache-Control "no-store"
+        }
+    
+        log {
+            output file /data/log/access.log {
+                format: json
+            }
+        }
+    
+        handle_errors {
+            respond "Что-то пошло не так!" 500
+        }
+    }
+    
+    api.music-demo.ru {
+        reverse_proxy story-stream-backend:8810
+    }
+    
+    portainer.music-demo.ru {
+        reverse_proxy portainer:9000
+    
+        header {
+            X-Frame-Options "DENY"
+            X-Content-Type-Options "nosniff"
+        }
+    
+        log {
+            output file /data/log/portainer-access.log {
+                format: json
+            }
+        }
+    
+        handle_errors {
+            respond "Что-то пошло не так при обращении к Portainer" 500
+        }
+    }
+    
+    pgadmin.music-demo.ru {
+        reverse_proxy pgadmin:80 {
+            header_up Host {host}
+            header_up X-Script-Name /pgadmin4
+            header_up X-Scheme https
+        }
+    
+        header {
+            Access-Control-Allow-Origin *
+            Access-Control-Allow-Methods GET, POST, OPTIONS, PUT, DELETE
+            Access-Control-Allow-Headers *
+            Access-Control-Allow-Credentials true
+        }
+    
+        log {
+            output file /data/log/pgadmin-access.log {
+                format: json
+            }
+        }
+    
+        handle_errors {
+            respond "Что-то пошло не так при обращении к pgAdmin" 500
+        }
+    }

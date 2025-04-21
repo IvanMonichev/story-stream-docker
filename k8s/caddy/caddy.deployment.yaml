@@ -18,12 +18,10 @@ spec:
           ports:
             - containerPort: 80
             - containerPort: 443
-          envFrom:
-            - configMapRef:
-                name: caddy-config-map
           volumeMounts:
             - name: caddy-config
-              mountPath: /etc/caddy
+              mountPath: /etc/caddy/Caddyfile
+              subPath: Caddyfile
             - name: caddy-data
               mountPath: /data
       volumes:
@@ -31,5 +29,4 @@ spec:
           configMap:
             name: caddy-config
         - name: caddy-data
-          persistentVolumeClaim:
-            claimName: caddy-pvc
+          emptyDir: {}
