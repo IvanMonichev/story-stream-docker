@@ -1,19 +1,4 @@
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: shared-nvme-pv
-spec:
-  capacity:
-    storage: 15Gi  # Общий объём
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: timeweb-ssd  # Должен совпадать с PVC
-  hostPath:
-    path: /mnt/nvme  # Путь на ноде
-    type: DirectoryOrCreate  # Автосоздание папки
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pvc
@@ -22,10 +7,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi  # 66% общего пространства
+      storage: 10Gi
   storageClassName: timeweb-ssd
 ---
-# Остальные сервисы делят оставшиеся 5Gi
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -59,5 +43,5 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi  # Минимум для сертификатов
+      storage: 1Gi
   storageClassName: timeweb-ssd

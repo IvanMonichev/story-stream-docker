@@ -29,17 +29,3 @@ spec:
         - name: docker-sock
           hostPath:
             path: /var/run/docker.sock
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: portainer
-spec:
-  type: LoadBalancer
-  selector:
-    app: portainer
-  ports:
-    - protocol: TCP
-      port: 9000
-      targetPort: 9000
