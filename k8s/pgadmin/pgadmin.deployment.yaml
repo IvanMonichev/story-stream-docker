@@ -29,5 +29,3 @@ spec:
         - name: pgadmin-storage
           persistentVolumeClaim:
             claimName: pgadmin-pvc
-
-
