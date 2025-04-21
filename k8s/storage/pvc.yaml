@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: postgres-pvc
 spec:
+  volumeName: shared-pv
   accessModes:
     - ReadWriteOnce
   resources:
@@ -15,18 +16,21 @@ kind: PersistentVolumeClaim
 metadata:
   name: pgadmin-pvc
 spec:
+  volumeName: shared-pv
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 2Gi
   storageClassName: timeweb-ssd
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: portainer-pvc
 spec:
+  volumeName: shared-pv
   accessModes:
     - ReadWriteOnce
   resources:
@@ -39,8 +43,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: caddy-pvc
 spec:
+  volumeName: shared-pv
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi

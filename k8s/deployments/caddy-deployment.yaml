@@ -28,8 +28,11 @@ spec:
               mountPath: /data
       volumes:
         - name: caddy-conf
+          hostPath:
+            path: /home/admin/story-stream/story-stream-docker/volumes/caddy/conf
+            type: Directory
           configMap:
-            name: caddy-config
+            name: caddy-env
         - name: caddy-data
           persistentVolumeClaim:
             claimName: caddy-pvc
