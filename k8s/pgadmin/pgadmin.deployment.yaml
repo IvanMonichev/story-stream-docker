@@ -20,7 +20,7 @@ spec:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: pgadmin-config
+                name: pgadmin-config-map
           volumeMounts:
             - name: pgadmin-storage
               mountPath: /var/lib/pgadmin
