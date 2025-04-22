@@ -8,7 +8,6 @@ spec:
     storage: 2Gi
   accessModes:
     - ReadWriteOnce
-    -
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/mnt/data/pgadmin"
