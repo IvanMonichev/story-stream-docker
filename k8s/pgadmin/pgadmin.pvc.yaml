@@ -8,7 +8,5 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      
-      
       storage: 1Gi
   volumeName: pgadmin-pv

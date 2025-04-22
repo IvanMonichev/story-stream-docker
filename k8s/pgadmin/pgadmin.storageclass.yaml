@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: StorageClass
+metadata:
+  name: pgadmin-storage-class
+  namespace: story-stream
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=5050
+  - nobrl
+  - cache=none
+parameters:
+  skuName: Standard_LRS
