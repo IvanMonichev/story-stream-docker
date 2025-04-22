@@ -21,6 +21,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: pgadmin-config-map
+            - secretRef:
+                name: pgadmin-secret
           volumeMounts:
             - name: pgadmin-storage
               mountPath: /var/lib/pgadmin
