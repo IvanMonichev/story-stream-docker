@@ -12,6 +12,8 @@ spec:
       labels:
         app: postgres
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: worker-192.168.0.5
       containers:
         - name: postgres
           image: postgres:15
