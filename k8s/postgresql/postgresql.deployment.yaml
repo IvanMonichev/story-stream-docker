@@ -1,7 +1,9 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
+  namespace: story-stream
 spec:
   replicas: 1
   selector:
@@ -12,8 +14,6 @@ spec:
       labels:
         app: postgres
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: worker-192.168.0.5
       containers:
         - name: postgres
           image: postgres:15
@@ -25,10 +25,9 @@ spec:
             - secretRef:
                 name: postgresql-secret
           volumeMounts:
-            - name: postgres-storage
-              mountPath: /var/lib/postgresql/data
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-storage
       volumes:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: postgres-pvc
-

@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pgadmin
+  namespace: story-stream
 spec:
   replicas: 1
   selector:
@@ -14,17 +15,15 @@ spec:
     spec:
       containers:
         - name: pgadmin
-          image: dpage/pgadmin4:9.2.0
+          image: dpage/pgadmin4
           ports:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: pgadmin-config-map
-            - secretRef:
-                name: pgadmin-secret
+                name: pgadmin-config
           volumeMounts:
-            - mountPath: /var/lib/pgadmin
-              name: pgadmin-storage
+            - name: pgadmin-storage
+              mountPath: /var/lib/pgadmin
       volumes:
         - name: pgadmin-storage
           persistentVolumeClaim:
