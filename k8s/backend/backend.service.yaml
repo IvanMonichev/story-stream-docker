@@ -8,6 +8,6 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 8810
+      port: 4000
       targetPort: 8810
   type: ClusterIP
