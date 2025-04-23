@@ -4,7 +4,8 @@ metadata:
   name: nginx-ingress
   namespace: story-stream
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
@@ -16,8 +17,8 @@ spec:
     - host: music-demo.ru
       http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /?(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: frontend-service
