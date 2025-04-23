@@ -4,7 +4,6 @@ metadata:
   name: backend-service
   namespace: story-stream
 spec:
-  type: LoadBalancer
   selector:
     app: backend
   ports:
