@@ -14,6 +14,15 @@ spec:
       labels:
         app: postgres
     spec:
+      securityContext:
+        fsGroup: 999
+      initContainers:
+        - name: fix-permissions
+          image: busybox
+          command: [ "sh", "-c", "chown -R 999:999 /var/lib/postgresql" ]
+          volumeMounts:
+            - name: pgadmin-storage
+              mountPath: /var/lib/postgresql
       containers:
         - name: postgres
           image: postgres:15
@@ -25,7 +34,7 @@ spec:
             - secretRef:
                 name: postgresql-secret
           volumeMounts:
-            - mountPath: /var/lib/postgresql/data
+            - mountPath: /var/lib/postgresql
               name: postgres-storage
       volumes:
         - name: postgres-storage
