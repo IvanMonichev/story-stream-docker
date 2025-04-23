@@ -4,6 +4,7 @@ metadata:
   name: ingress-nginx
   namespace: story-stream
 spec:
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: ingress-nginx
   ports:
@@ -13,4 +14,4 @@ spec:
     - name: https
       port: 443
       targetPort: 443
-  type: LoadBalancer
+
