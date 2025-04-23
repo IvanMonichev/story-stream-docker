@@ -11,6 +11,7 @@ spec:
     - hosts:
         - music-demo.ru
         - api.music-demo.ru
+        - db.music-demo.ru
       secretName: ingress-tls
   rules:
     - host: music-demo.ru
