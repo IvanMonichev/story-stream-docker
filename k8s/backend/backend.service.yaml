@@ -10,3 +10,4 @@ spec:
     - protocol: TCP
       port: 8810
       targetPort: 8810
+  type: ClusterIP

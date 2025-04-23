@@ -10,3 +10,4 @@ spec:
       nodePort: 30080
   selector:
     app: pgadmin
+  type: ClusterIP
