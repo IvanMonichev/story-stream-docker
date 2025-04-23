@@ -4,9 +4,8 @@ metadata:
   name: nginx-ingress
   namespace: story-stream
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
     - hosts:
