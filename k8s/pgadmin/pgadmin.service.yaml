@@ -5,8 +5,8 @@ metadata:
   namespace: story-stream
 spec:
   ports:
-    - port: 5050
-      targetPort: 80
+    - port: 80
+      targetPort: 5050
       nodePort: 30080
   selector:
     app: pgadmin
