@@ -1,4 +1,4 @@
-apiVersion: м1
+apiVersion: v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
