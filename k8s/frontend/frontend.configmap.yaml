@@ -4,5 +4,5 @@ metadata:
   name: frontend-config-map
   namespace: story-stream
 data:
-  VITE_API_SERVER: "backend-service:8810"
+  VITE_API_SERVER: "https://api.music-demo.ru"
 
