@@ -17,17 +17,17 @@ spec:
     - host: music-demo.ru
       http:
         paths:
-          - path: /frontend
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: frontend-service
                 port:
-                  number: 8080
+                  number: 80
     - host: api.music-demo.ru
       http:
         paths:
-          - path: /backend
+          - path: /
             pathType: Prefix
             backend:
               service:
@@ -37,11 +37,11 @@ spec:
     - host: db.music-demo.ru
       http:
         paths:
-          - path: /db
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: pgadmin-service
                 port:
-                  number: 5050
+                  number: 80
 
