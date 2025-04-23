@@ -21,7 +21,7 @@ spec:
           image: busybox
           command: [ "sh", "-c", "chown -R 999:999 /var/lib/postgresql" ]
           volumeMounts:
-            - name: pgadmin-storage
+            - name: postgres-storage
               mountPath: /var/lib/postgresql
       containers:
         - name: postgres
