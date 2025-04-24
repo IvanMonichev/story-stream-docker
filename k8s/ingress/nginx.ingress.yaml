@@ -5,14 +5,14 @@ metadata:
   namespace: story-stream
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: letsencrypt
+#    cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  tls:
-    - hosts:
-        - music-demo.ru
-        - api.music-demo.ru
-        - db.music-demo.ru
-      secretName: ingress-tls
+#  tls:
+#    - hosts:
+#        - music-demo.ru
+#        - api.music-demo.ru
+#        - db.music-demo.ru
+#      secretName: ingress-tls
   rules:
     - host: music-demo.ru
       http:
