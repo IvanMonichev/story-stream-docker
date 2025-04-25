@@ -45,7 +45,7 @@ spec:
                 name: pgadmin-service
                 port:
                   number: 80
-    - host: grafana.music-demo.ru
+    - host: grafana-test.music-demo.ru
       http:
         paths:
           - path: /
