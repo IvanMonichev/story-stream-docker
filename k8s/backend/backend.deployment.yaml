@@ -16,6 +16,13 @@ spec:
       containers:
         - name: backend
           image: tatarjesus/story-stream-backend:latest
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "400m"
+              memory: "512Mi"
           ports:
             - containerPort: 8810
           envFrom:
