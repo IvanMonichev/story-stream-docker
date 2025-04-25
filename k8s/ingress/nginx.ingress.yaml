@@ -12,6 +12,7 @@ spec:
         - music-demo.ru
         - api.music-demo.ru
         - db.music-demo.ru
+        - grafana.music-demo.ru
       secretName: ingress-tls
   rules:
     - host: music-demo.ru
@@ -44,4 +45,14 @@ spec:
                 name: pgadmin-service
                 port:
                   number: 80
+    - host: grafana.music-demo.ru
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana-service
+                port:
+                  number: 3000
 
