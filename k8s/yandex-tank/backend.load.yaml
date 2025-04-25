@@ -1,10 +1,10 @@
 phantom:
-  address: "api.music-demo.ru/load/cpu"
+  address: "api.music-demo.ru"
   uris:
-    - "/"
+    - "/load/cpu"
   load_profile:
     load_type: rps
-    schedule: const(5000, 5m)
+    schedule: const(500, 5m)
   ssl: true
 console:
   enabled: true
