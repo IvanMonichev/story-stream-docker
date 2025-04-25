@@ -1,5 +1,5 @@
 phantom:
-  address: "api.music-demo.ru"
+  address: "api.music-demo.ru/load/cpu"
   uris:
     - "/"
   load_profile:
