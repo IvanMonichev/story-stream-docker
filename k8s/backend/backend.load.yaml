@@ -12,3 +12,5 @@ telegraf:
   enabled: false
 influx:
   enabled: false
+rcheck:
+  enabled: false
