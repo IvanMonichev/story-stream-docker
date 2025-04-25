@@ -4,7 +4,7 @@ phantom:
     - "/"
   load_profile:
     load_type: rps
-    schedule: const(100, 5m)
+    schedule: const(5000, 5m)
   ssl: true
 console:
   enabled: true
