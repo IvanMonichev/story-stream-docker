@@ -24,3 +24,8 @@ kubectl delete -f service.yaml
 kubectl delete -f ingress.yaml
 kubectl delete -f configmap.yaml
 ```
+
+## Yandex Tank
+```bash
+docker run --net host -it yandex/yandex-tank -c
+```
