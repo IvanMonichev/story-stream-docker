@@ -31,3 +31,5 @@ spec:
         - name: config
           configMap:
             name: grafana-config
+      securityContext:
+        fsGroup: 472
