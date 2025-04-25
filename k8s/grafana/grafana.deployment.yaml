@@ -33,3 +33,10 @@ spec:
             name: grafana-config
       securityContext:
         fsGroup: 472
+      initContainers:
+        - name: fix-permissions
+          image: busybox
+          command: [ 'sh', '-c', 'chown -R 472:472 /var/lib/grafana' ]
+          volumeMounts:
+            - name: grafana-storage
+              mountPath: /var/lib/grafana
