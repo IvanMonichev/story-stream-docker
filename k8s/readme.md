@@ -27,5 +27,5 @@ kubectl delete -f configmap.yaml
 
 ## Yandex Tank
 ```bash
-docker run --net host -it yandex/yandex-tank -c
+docker run -v $(pwd):/var/loadtest --net host -it yandex/yandex-tank -c ./yandex-tank/backend.load.yaml
 ```

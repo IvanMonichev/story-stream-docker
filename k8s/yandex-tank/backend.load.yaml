@@ -5,7 +5,7 @@ phantom:
     - "/load/cpu"
   load_profile:
     load_type: rps
-    schedule: const(1,30) line(1,1000,2m) const(1000,5m)
+    schedule: const(1,30) line(1,100,2m) const(100,2m)
   ssl: true
 console:
   enabled: true
