@@ -6,10 +6,9 @@ phantom:
     - "[Connection: close]"
   uris:
     - "/"
-    - "/load/cpu"
   load_profile:
     load_type: rps
-    schedule: line(1,25,1m)
+    schedule: line(1,25,5m)
   ssl: true
 autostop:
   autostop:
