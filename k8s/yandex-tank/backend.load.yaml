@@ -1,16 +1,20 @@
 phantom:
   address: "api.music-demo.ru:443"
+  header_http: "1.1"
+  headers:
+    - "[Host: api.music-demo.ru]"
+    - "[Connection: close]"
   uris:
+    - "/"
     - "/load/cpu"
   load_profile:
     load_type: rps
-    schedule: const(1,30) line(1,100,2m) const(100,2m)
+    schedule: line(1,100,1m)
   ssl: true
+autostop:
+  autostop:
+    - http(5xx,10%,5s)
 console:
   enabled: true
 telegraf:
-  enabled: false
-influx:
-  enabled: false
-rcheck:
   enabled: false
