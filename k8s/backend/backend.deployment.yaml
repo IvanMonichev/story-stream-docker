@@ -18,9 +18,9 @@ spec:
           image: tatarjesus/story-stream-backend:latest
           resources:
             requests:
-              cpu: '1'
+              cpu: '50m'
             limits:
-              cpu: '0.5'
+              cpu: '500m'
           ports:
             - containerPort: 8810
           envFrom:
