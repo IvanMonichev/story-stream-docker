@@ -22,7 +22,7 @@ spec:
               memory: '256Mi'
             limits:
               cpu: '500m'
-              memory: '512Mi
+              memory: '512Mi'
           ports:
             - containerPort: 8810
           envFrom:
@@ -30,4 +30,3 @@ spec:
                 name: backend-config-map
             - secretRef:
                 name: backend-secret
-
