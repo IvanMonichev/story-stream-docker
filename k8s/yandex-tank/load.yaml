@@ -1,0 +1,11 @@
+phantom:
+  address: api.music-demo.ru:443
+  uris:
+    - /posts
+  load_profile:
+    load_type: rps
+    schedule: line(1, 15, 1m)
+console:
+  enabled: true
+telegraf:
+  enabled: false
