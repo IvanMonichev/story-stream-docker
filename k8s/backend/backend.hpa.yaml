@@ -7,9 +7,9 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: backend
+    name: backend-service
   minReplicas: 1
-  maxReplicas: 3
+  maxReplicas: 10
   metrics:
     - type: Resource
       resource:
