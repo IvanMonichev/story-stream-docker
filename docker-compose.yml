@@ -45,7 +45,7 @@ services:
     ports:
       - "3000:8080"
     environment:
-      VITE_API_URL: ${VITE_API_SERVER}
+      VITE_API_URL: ${VITE_API_URL}
 
   story-stream-backend:
     image: tatarjesus/story-stream-backend:latest

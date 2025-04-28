@@ -25,7 +25,27 @@ music-demo.ru {
 
 api.music-demo.ru {
     reverse_proxy story-stream-backend:8810
+
+    header {
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "no-referrer-when-downgrade"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+        Cache-Control "no-store"
+    }
+
+    log {
+        output file /data/log/api-access.log {
+            format: json
+        }
+    }
+
+    handle_errors {
+        respond "Что-то пошло не так при обращении к API" 500
+    }
 }
+
 
 portainer.music-demo.ru {
     reverse_proxy portainer:9000
