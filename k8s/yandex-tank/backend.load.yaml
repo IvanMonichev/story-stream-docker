@@ -9,7 +9,7 @@ phantom:
     - "/load/cpu"
   load_profile:
     load_type: rps
-    schedule: line(1,100,1m)
+    schedule: line(1,25,1m)
   ssl: true
 autostop:
   autostop:
