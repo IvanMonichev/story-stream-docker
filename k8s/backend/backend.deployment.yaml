@@ -18,11 +18,11 @@ spec:
           image: tatarjesus/story-stream-backend:latest
           resources:
             requests:
-              cpu: "500m"
-              memory: "128Mi"   # 256 мегабайт памяти
+              cpu: "30m"  # Запрос на 0.2 CPU
+              memory: "128Mi"  # Запрос на 256 MiB памяти
             limits:
-              cpu: "1"       # максимум пол-ядра
-              memory: "256Mi"   # максимум 512 мегабайт
+              cpu: "60Mi"  # Лимит 0.5 CPU
+              memory: "228Mi"  # Лимит 512 MiB памяти
           ports:
             - containerPort: 8810
           envFrom:
