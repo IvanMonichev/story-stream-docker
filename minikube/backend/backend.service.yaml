@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: story-stream
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 8810
+      targetPort: 8810
+  type: ClusterIP
