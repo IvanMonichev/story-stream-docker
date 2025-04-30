@@ -1,6 +1,6 @@
 # Доступы
 
-- ssh root@195.133.27.73
+- ssh admin@188.225.46.223
 - ssh our-vm
 
 ## Terraform

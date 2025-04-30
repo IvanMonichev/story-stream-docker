@@ -11,3 +11,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/mnt/data/postgres"
+  storageClassName: tw-hdd

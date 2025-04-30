@@ -4,7 +4,6 @@ metadata:
   name: backend
   namespace: story-stream
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -16,11 +15,11 @@ spec:
       containers:
         - name: backend
           image: tatarjesus/story-stream-backend:latest
-#          resources:
-#            requests:
-#              cpu: '100m'
-#            limits:
-#              cpu: '500m'
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "500m"
           ports:
             - containerPort: 8810
           envFrom:
