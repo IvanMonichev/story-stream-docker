@@ -14,7 +14,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - name: backend
+        - name: frontend
           image: ivanmonichev/story-stream-frontend:latest
           ports:
             - containerPort: 8080

@@ -9,7 +9,7 @@ phantom:
   ssl: true
   load_profile:
     load_type: rps
-    schedule: line(1, 3, 1m)
+    schedule: line(1, 5, 2m)
 console:
   enabled: true
 telegraf:
