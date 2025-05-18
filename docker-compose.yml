@@ -63,6 +63,7 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       JWT_ACCESS_EXPIRE: ${JWT_ACCESS_EXPIRE}
       NODE_ENV: ${NODE_ENV}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
 
   caddy:
     image: caddy:2.9.1-alpine
